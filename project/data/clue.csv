@@ -1,8 +1,8 @@
 Item_Number,Item_name,Item_Location,Item_description,clue_type 
-1,spatula,kitchen,large leather book,
-2,frying pan,kitchen,blue towel with initials on it ,
-3,cook book,kitchen,red ink ,
-4,footprints,kitchen,half drank cold coffee in white ceramic cup ,
+1,spatula,kitchen,sitting on the counter and appears clean,
+2,frying pan,kitchen,sitting on stove empty,
+3,cook book,kitchen,open to cacio e pepe recipe,
+4,footprints,kitchen,dark muddy footprints leading to side door that leads to the garage,
 5,broken picture frame ,living room,gold embellished frame dangling off the wall,
 6,vase,living room,rolled onto its side and a deep blue in color,
 7,safe,living room,remains open and empty beside to the side of the room, 
