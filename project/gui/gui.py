@@ -22,7 +22,15 @@ from game.load_data import load_suspects, load_locations, load_clues
 
 
 class MysteryGUI:
+    """
+    Class for Mystery Investigation Game GUI
+    """
     def __init__(self, root):
+        """
+        initialization function
+        :param root: tkinter root window
+        :return: None
+        """
         self.root = root
         self.root.title("Mystery Investigation Game")
         self.root.geometry("900x600")
@@ -51,6 +59,10 @@ class MysteryGUI:
         )
 
     def build_gui(self):
+        """
+        Build GUI function
+        :return: none
+        """
         # Main container
         self.main_frame = tk.Frame(self.root, bg="lightgrey")
         self.main_frame.pack(fill="both", expand=True)
@@ -168,10 +180,19 @@ class MysteryGUI:
         self.output_text.pack(fill="both", expand=True)
 
     def update_output(self, text):
+        """
+        updates the output on the screen
+        :param text: text to display
+        :return: None
+        """
         self.output_text.delete("1.0", tk.END)
         self.output_text.insert(tk.END, text)
 
     def draw_map(self):
+        """
+        Creates the map
+        :return: none
+        """
         self.map_canvas.delete("all")
         self.room_shapes.clear()
 
@@ -230,12 +251,22 @@ class MysteryGUI:
         self.map_canvas.bind("<Button-1>", self.on_map_click)
 
     def room_has_unfound_clues(self, room_name):
+        """
+        Informs user that there are clues to be found in unsearched room
+        :param room_name: room name
+        :return: True or False
+        """
         for clue in self.clues:
             if clue.get_location().strip().lower() == room_name.strip().lower() and clue not in self.found_clues:
                 return True
         return False
 
     def on_map_click(self, event):
+        """
+        Allows used to selecting items on map and directs them to search the current room
+        :param event: enters room of closest click on GUI
+        :return: none
+        """
         clicked_item = self.map_canvas.find_closest(event.x, event.y)
         if not clicked_item:
             return
@@ -245,21 +276,33 @@ class MysteryGUI:
             self.current_room = self.room_shapes[item_id]
             self.current_room_label.config(text=f"Current Room: {self.current_room}")
             self.draw_map()
-            self.update_output(f"You travel to the {self.current_room}.")
+            self.update_output(f"You travel to the {self.current_room}, click 'Search Current Room' to search room.")
 
     def show_suspects(self):
+        """
+        Displays the suspects on the screen
+        :return: none
+        """
         lines = ["Suspects:\n"]
         for i, suspect in enumerate(self.suspects, 1):
             lines.append(f"{i}. {suspect.get_name()} - {suspect.get_role()}")
         self.update_output("\n".join(lines))
 
     def show_locations(self):
+        """
+        Displays the locations on the screen
+        :return: none
+        """
         lines = ["Locations:\n"]
         for i, location in enumerate(self.locations, 1):
             lines.append(f"{i}. {location.get_name()}: {location.get_description()}")
         self.update_output("\n".join(lines))
 
     def search_current_room(self):
+        """
+        Out puts Searches to the current room 
+        :return: none
+        """
         lines = [f"You are searching {self.current_room}...\n"]
         found_any = False
 
@@ -282,6 +325,10 @@ class MysteryGUI:
         self.draw_map()
 
     def show_found_clues(self):
+        """
+        Displays the found clues on the screen
+        :return: none
+        """
         if not self.found_clues:
             self.update_output("Found Clues:\n\nYou have not found any clues yet.")
             return
@@ -292,6 +339,10 @@ class MysteryGUI:
         self.update_output("\n".join(lines))
 
     def ask_suspect_alibi(self):
+        """
+        Prompts user to ask suspect for their alibi
+        :return: none
+        """
         window = tk.Toplevel(self.root)
         window.title("Ask for Alibi")
         window.geometry("300x300")
@@ -305,6 +356,10 @@ class MysteryGUI:
             suspect_listbox.insert(tk.END, suspect.get_name())
 
         def submit():
+            """
+            Displays suspects alibi to the screen if it is selected
+            :return: none
+            """
             selection = suspect_listbox.curselection()
             if not selection:
                 messagebox.showwarning("No Selection", "Please choose a suspect.")
@@ -319,6 +374,10 @@ class MysteryGUI:
         tk.Button(window, text="Show Alibi", command=submit).pack(pady=10)
 
     def make_accusation(self):
+        """
+        Creates window that displays the option for user to make an accusation
+        :return: none
+        """
         window = tk.Toplevel(self.root)
         window.title("Make an Accusation")
         window.geometry("300x350")
@@ -336,6 +395,10 @@ class MysteryGUI:
             suspect_listbox.insert(tk.END, suspect.get_name())
 
         def submit():
+            """
+            Displays suspects accuse to the screen if it is selected
+            :return: none
+            """
             selection = suspect_listbox.curselection()
             if not selection:
                 messagebox.showwarning("No Selection", "Please choose a suspect.")
