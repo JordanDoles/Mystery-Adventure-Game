@@ -1,11 +1,13 @@
 import pandas as pd
-from suspect import Suspect
-from location import Location
-from clue import Clue
+from .suspect import Suspect
+from .location import Location
+from .clue import Clue
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 def load_suspects():
-    df = pd.read_csv("suspect.csv")
+    df = pd.read_csv(BASE_DIR / "data" / "suspect.csv")
     df.columns = df.columns.str.strip()
 
     suspects = []
@@ -21,7 +23,7 @@ def load_suspects():
 
 
 def load_locations():
-    df = pd.read_csv("location.csv")
+    df = pd.read_csv(BASE_DIR / "data" / "location.csv")
     df.columns = df.columns.str.strip()
 
     locations = []
@@ -36,7 +38,7 @@ def load_locations():
 
 
 def load_clues():
-    df = pd.read_csv("clue.csv")
+    df = pd.read_csv(BASE_DIR / "data" / "clue.csv")
     df.columns = df.columns.str.strip()
 
     clues = []
