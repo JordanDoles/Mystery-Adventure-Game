@@ -7,6 +7,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 def load_suspects():
+    """
+    load suspect data
+    :return: suspect data
+    """
     df = pd.read_csv(BASE_DIR / "data" / "suspect.csv")
     df.columns = df.columns.str.strip()
 
@@ -23,6 +27,10 @@ def load_suspects():
 
 
 def load_locations():
+    """
+    load location data
+    :return: location data
+    """
     df = pd.read_csv(BASE_DIR / "data" / "location.csv")
     df.columns = df.columns.str.strip()
 
@@ -38,6 +46,10 @@ def load_locations():
 
 
 def load_clues():
+    """
+    load clue data
+    :return: clue data
+    """
     df = pd.read_csv(BASE_DIR / "data" / "clue.csv")
     df.columns = df.columns.str.strip()
 
