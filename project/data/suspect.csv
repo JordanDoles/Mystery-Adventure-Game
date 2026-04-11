@@ -1,6 +1,6 @@
 Suspect_Number,Suspect_Name,Suspect_Role,Suspect_Description,Suspect_Alibi 
-1,Victor Auren,The Husband,A wealthy collector obsessed with order and protecting his family’s secrets.,
-2,Claire Delmare,The Wife,A poised socialite who always seems to know what everyone else is up to.,
-3,Penny Duster,The Maid,A meticulous housemaid who notices everything happening around the estate.,
-4,Alfred Sterling,The Butler,A dignified butler whose calm professionalism hides a surprisingly sharp memory.,
-5,Oliver Green,The Gardener,A reserved groundskeeper who spends long hours working alone outdoors.,
+1,Victor Auren,The Husband,A wealthy collector obsessed with order and protecting his family’s secrets.,"I was out with some friends having dinner. I have no idea why anyone would want those old family papers in that safe. There a million dollar vase in that room! I dont rememeber sharing the code with anyone. This is ridiculous.",
+2,Claire Delmare,The Wife,A poised socialite who always seems to know what everyone else is up to.,"I was cooking in the kitchen when I heard noise coming from the living room. I thought it was just the maid cleaning because I was listening to music. It wasnt until 20 minutes later I entered and found the safe open and called my husband.",
+3,Penny Duster,The Maid,A meticulous housemaid who notices everything happening around the estate.,"I'll tell you right now I had nothing to do with this. I wasn't even cleaning the house when it happened. I was picking up groceries to cook for the family that night to cook chicken. Something weird is going on here. The picture frame was intact when I left thats for sure.",
+4,Alfred Sterling,The Butler,A dignified butler whose calm professionalism hides a surprisingly sharp memory.,"I was in the office organzing papers and cleaning. The office is on the other side of the house and heard nothing. Claire must of heard or seen something shes always in the living room working on her laptop.",
+5,Oliver Green,The Gardener,A reserved groundskeeper who spends long hours working alone outdoors.,"I was working on the lawn mower. It's been out of commision and I know its somethign I can fix. Just ask Claire. I waved to her when she was sitting in the office." 
