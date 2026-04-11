@@ -271,7 +271,6 @@ class MysteryGUI:
                     lines.append(
                         f"Found clue: {clue.get_name()}\n"
                         f"Description: {clue.get_description()}\n"
-                        f"Type: {clue.get_clue_type()}\n"
                     )
                 else:
                     lines.append(f"You already found: {clue.get_name()}\n")
@@ -289,7 +288,7 @@ class MysteryGUI:
 
         lines = ["Found Clues:\n"]
         for i, clue in enumerate(self.found_clues, 1):
-            lines.append(f"{i}. {clue.get_name()} - {clue.get_description()} ({clue.get_clue_type()})")
+            lines.append(f"{i}. {clue.get_name()} - {clue.get_description()}")
         self.update_output("\n".join(lines))
 
     def ask_suspect_alibi(self):
@@ -354,7 +353,6 @@ class MysteryGUI:
                     "Result",
                     f"That accusation is incorrect.\n"
                     f"{accused_suspect.get_name()} is not the culprit.\n"
-                    f"The real culprit was {self.culprit_name}."
                 )
 
             window.destroy()
