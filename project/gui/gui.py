@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 from game.load_data import load_suspects, load_locations, load_clues
 
-
+# TODO: find out how to make it so that you can't type in the output box
 class MysteryGUI:
     """
     Class for Mystery Investigation Game GUI
@@ -40,7 +40,7 @@ class MysteryGUI:
             "Welcome to the Mystery Investigation Game.\n"
             "Click a room on the map to travel there."
         )
-
+# TODO: "start" screen with basic game goal description
     def build_gui(self):
         """
         Build GUI function
@@ -149,7 +149,7 @@ class MysteryGUI:
         self.map_canvas = tk.Canvas(
             self.right_panel,
             bg="white",
-            height=260
+            height=300
         )
         self.map_canvas.pack(fill="x", pady=(0, 10))
 
@@ -171,6 +171,7 @@ class MysteryGUI:
         self.output_text.delete("1.0", tk.END)
         self.output_text.insert(tk.END, text)
 
+# TODO: draw the rest of the rooms on the map
     def draw_map(self):
         """
         Creates the map
@@ -205,6 +206,7 @@ class MysteryGUI:
 
             fill_color = "lightblue" if location_name == self.current_room else "lightgray"
 
+            # This draws the box for the room
             rect_id = self.map_canvas.create_rectangle(
                 x1, y1, x2, y2,
                 fill=fill_color,
@@ -259,8 +261,9 @@ class MysteryGUI:
             self.current_room = self.room_shapes[item_id]
             self.current_room_label.config(text=f"Current Room: {self.current_room}")
             self.draw_map()
-            self.update_output(f"You travel to the {self.current_room}, click 'Search Current Room' to search room.")
+            self.update_output(f"You travel to the {self.current_room}, select 'Search Current Room' to look for clues.")
 
+# TODO: suspects can only be interacted with in certain rooms
     def show_suspects(self):
         """
         Displays the suspects on the screen
@@ -281,6 +284,7 @@ class MysteryGUI:
             lines.append(f"{i}. {location.get_name()}: {location.get_description()}")
         self.update_output("\n".join(lines))
 
+# TODO: (maybe) functionality for the player to find each clue in a room individually
     def search_current_room(self):
         """
         Out puts Searches to the current room 
@@ -321,6 +325,8 @@ class MysteryGUI:
             lines.append(f"{i}. {clue.get_name()} - {clue.get_description()}")
         self.update_output("\n".join(lines))
 
+# TODO: tracking for unique responses for asking suspect for an alibi again (this may just be put in when you accuse a suspect)
+# TODO: unique responses if certain pieces of evidence are found before talking to suspect
     def ask_suspect_alibi(self):
         """
         Prompts user to ask suspect for their alibi
