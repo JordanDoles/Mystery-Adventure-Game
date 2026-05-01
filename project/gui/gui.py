@@ -1,13 +1,23 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from game.load_data import load_suspects, load_locations, load_clues
+from project.game.load_data import (
+    load_all_cases,
+    load_specific_case_id,
+    load_random_variation,
+    load_random_culprit,
+    load_suspects,
+    load_locations,
+    load_clues,
+    load_alibis)
 
 # TODO: find out how to make it so that you can't type in the output box
+# TODO: "start" screen with basic game goal description & player ability to choose case
 class MysteryGUI:
     """
     Class for Mystery Investigation Game GUI
     """
+    # SECTION: INITIALIZATION
     def __init__(self, root):
         """
         initialization function
@@ -18,29 +28,89 @@ class MysteryGUI:
         self.root.title("Mystery Investigation Game")
         self.root.geometry("900x600")
 
-        # Load backend data
-        self.suspects = load_suspects()
-        self.locations = load_locations()
-        self.clues = load_clues()
+        self.show_start_screen()
+
+# TODO: "start" screen with basic game goal description
+    # SECTION: START SCREEN
+    def show_start_screen(self):
+        """
+        Displays the opening case selection screen.
+        """
+        self.start_frame = tk.Frame(self.root, bg="lightgrey")
+        self.start_frame.pack(fill="both", expand=True)
+
+        tk.Label(
+            self.start_frame,
+            text="Welcome to the Mystery Investigation Game.",
+            font=("Arial", 18, "bold"),
+            bg="lightgrey"
+        ).pack(pady=20)
+
+        tk.Label(
+            self.start_frame,
+            text="Choose a case to investigate:",
+            font=("Arial", 14),
+            bg="lightgrey"
+        ).pack(pady=10)
+
+        cases_df = load_all_cases()
+
+        for _, row in cases_df.iterrows():
+            case_id = row["case_id"]
+            case_name = row["case_name"]
+
+            tk.Button(
+                self.start_frame,
+                text=case_name,
+                width=35,
+                command=lambda selected_case_id=case_id: self.start_game(selected_case_id)
+            ).pack(pady=5)
+
+    def start_game(self, case_id):
+        """
+        Loads the selected case, chooses a random variation and culprit,
+        then starts the main game GUI.
+        :param case_id:
+        """
+        self.case_id = case_id
+
+        self.current_case = load_specific_case_id(self.case_id)
+
+        self.current_variation = load_random_variation(self.case_id)
+        self.variation_id = self.current_variation.get_variation_id()
+
+        self.current_culprit = load_random_culprit(self.case_id, self.variation_id)
+        self.culprit_id = self.current_culprit.get_culprit_id()
+
+        self.suspects = load_suspects(self.case_id)
+        self.locations = load_locations(self.case_id)
+        self.clues = load_clues(self.case_id, self.variation_id, self.culprit_id)
+        self.alibis = load_alibis(self.case_id, self.variation_id, self.culprit_id)
 
         self.found_clues = []
+        self.room_shapes = {}
 
-        # Culprit from the latest game.py version you pasted
-        self.culprit_name = self.suspects[4].get_name() if len(self.suspects) > 4 else self.suspects[0].get_name()
+        self.culprit_name = next(
+            suspect.get_name()
+            for suspect in self.suspects
+            if suspect.get_suspect_id() == self.culprit_id
+        )
 
-        # Start in first location if available
         self.current_room = self.locations[0].get_name() if self.locations else "No Room"
 
         # Canvas room click tracking
         self.room_shapes = {}
 
+        self.start_frame.destroy()
         self.build_gui()
         self.draw_map()
         self.update_output(
             "Welcome to the Mystery Investigation Game.\n"
             "Click a room on the map to travel there."
         )
-# TODO: "start" screen with basic game goal description
+
+
+    # SECTION: GUI BUILDING
     def build_gui(self):
         """
         Build GUI function
@@ -238,7 +308,7 @@ class MysteryGUI:
     def room_has_unfound_clues(self, room_name):
         """
         Informs user that there are clues to be found in unsearched room
-        :param room_name: room name
+        :param room_name: name of the room
         :return: True or False
         """
         for clue in self.clues:
