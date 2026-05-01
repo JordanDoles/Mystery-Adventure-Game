@@ -1,52 +1,30 @@
 class Clue:
-    """
-    Class representing clues
-    """
-    def __init__(self, name, location, description, clue_type):
-        """
-        Constructor
-        :param name: name of the clue
-        :param location: name of the location
-        :param description: description of the clue
-        :param clue_type: type of clue
-        :return: None
-        """
-        self.name = name
-        self.location = location
-        self.description = description
-        self.clue_type = clue_type
+    def __init__(self, clue_id, item_name, item_description, item_location, case_id, variation_id, culprit_id):
+        self.__clue_id = clue_id
+        self.__item_name = item_name
+        self.__item_description = item_description
+        self.__item_location = item_location
+        self.__case_id = case_id
+        self.__variation_id = variation_id
+        self.__culprit_id = culprit_id
 
-    def get_name(self):
-        """
-        get name of the clue
-        :return: name of the clue
-        """
-        return self.name
+    def get_clue_id(self):
+        return self.__clue_id
 
-    def get_location(self):
-        """
-        get location of the clue
-        :return: name of the location
-        """
-        return self.location
+    def get_item_name(self):
+        return self.__item_name
 
-    def get_description(self):
-        """
-        get description of the clue
-        :return: clue description
-        """
-        return self.description
+    def get_item_description(self):
+        return self.__item_description
 
-    def get_clue_type(self):
-        """
-        get clue type
-        :return: clue type
-        """
-        return self.clue_type
+    def get_item_location(self):
+        return self.__item_location
 
-    def __str__(self):
-        """
-        string representation of the clue
-        :return: string representation of the clue
-        """
-        return f" {self.name} found in the {self.location}"
+    def get_case_id(self):
+        return self.__case_id
+
+    def get_variation_id(self):
+        return self.__variation_id
+
+    def get_culprit_id(self):
+        return self.__culprit_id
