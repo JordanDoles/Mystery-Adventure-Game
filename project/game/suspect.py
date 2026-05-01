@@ -1,43 +1,19 @@
 class Suspect:
-    """
-    Suspect class
-    """
-    def __init__(self, name, role, alibi):
-        """
-        Constructor
-        :param name: name of the suspect
-        :param role: role of the suspect
-        :param alibi: alibi of the suspect
-        :return: none
-        """
-        self.name = name
-        self.role = role
-        self.alibi = alibi
+    def __init__(self, suspect_id, name, role, description):
+        self.__suspect_id = suspect_id
+        self.__name = name
+        self.__role = role
+        self.__description = description
+
+    # Getters
+    def get_suspect_id(self):
+        return self.__suspect_id
 
     def get_name(self):
-        """
-        get name of the suspect
-        :return: name of the suspect
-        """
-        return self.name
+        return self.__name
 
     def get_role(self):
-        """
-        get role of the suspect
-        :return: role of the suspect
-        """
-        return self.role
+        return self.__role
 
-    def get_alibi(self):
-        """
-        get alibi of the suspect
-        :return: alibi of the suspect
-        """
-        return self.alibi
-
-    def __str__(self):
-        """
-        string representation of the suspect
-        :return: string representation of the suspect
-        """
-        return f"{self.name} - Role: {self.role}"
+    def get_description(self):
+        return self.__description
