@@ -53,18 +53,64 @@ class MysteryGUI:
             bg="lightgrey"
         ).pack(pady=10)
 
-        cases_df = load_all_cases()
+        self.cases_df = load_all_cases()
+        case_names = self.cases_df["case_name"].tolist()
 
-        for _, row in cases_df.iterrows():
-            case_id = row["case_id"]
-            case_name = row["case_name"]
+        self.selected_case_name = tk.StringVar()
+        self.selected_case_name.set(case_names[0])
 
-            tk.Button(
-                self.start_frame,
-                text=case_name,
-                width=35,
-                command=lambda selected_case_id=case_id: self.start_game(selected_case_id)
-            ).pack(pady=5)
+        case_dropdown = tk.OptionMenu(
+            self.start_frame,
+            self.selected_case_name,
+            *case_names,
+            command=self.update_case_preview
+        )
+        case_dropdown.config(width=35)
+        case_dropdown.pack(pady=5)
+
+        self.case_preview_text = tk.Text(
+            self.start_frame,
+            width=70,
+            height=8,
+            wrap="word",
+            font=("Arial", 11)
+        )
+        self.case_preview_text.pack(pady=15)
+
+        self.update_case_preview(case_names[0])
+
+        tk.Button(
+            self.start_frame,
+            text="Confirm Case",
+            width=20,
+            command=self.confirm_case_selection
+        ).pack(pady=10)
+
+    def update_case_preview(self, selected_case_name):
+        """
+        Updates the preview box when the player selects a case.
+        :param selected_case_name:
+        """
+        selected_row = self.cases_df[
+            self.cases_df["case_name"] == selected_case_name
+        ].iloc[0]
+
+        self.case_preview_text.delete("1.0", tk.END)
+        self.case_preview_text.insert(tk.END, selected_row["case_opening"])
+
+    def confirm_case_selection(self):
+        """
+        Starts the game after the player confirms their selected case.
+        """
+        selected_case_name = self.selected_case_name.get()
+
+        selected_row = self.cases_df[
+            self.cases_df["case_name"] == selected_case_name
+        ].iloc[0]
+
+        selected_case_id = selected_row["case_id"]
+
+        self.start_game(selected_case_id)
 
     def start_game(self, case_id):
         """
@@ -98,17 +144,13 @@ class MysteryGUI:
 
         self.current_room = self.locations[0].get_name() if self.locations else "No Room"
 
-        # Canvas room click tracking
-        self.room_shapes = {}
-
         self.start_frame.destroy()
         self.build_gui()
         self.draw_map()
         self.update_output(
-            "Welcome to the Mystery Investigation Game.\n"
+            f"{self.current_case.get_opening()}\n\n"
             "Click a room on the map to travel there."
         )
-
 
     # SECTION: GUI BUILDING
     def build_gui(self):
@@ -312,7 +354,7 @@ class MysteryGUI:
         :return: True or False
         """
         for clue in self.clues:
-            if clue.get_location().strip().lower() == room_name.strip().lower() and clue not in self.found_clues:
+            if clue.get_item_location().strip().lower() == room_name.strip().lower() and clue not in self.found_clues:
                 return True
         return False
 
@@ -351,29 +393,36 @@ class MysteryGUI:
         """
         lines = ["Locations:\n"]
         for i, location in enumerate(self.locations, 1):
-            lines.append(f"{i}. {location.get_name()}: {location.get_description()}")
+            lines.append(f"{i}. {location.get_name()}")
         self.update_output("\n".join(lines))
 
 # TODO: (maybe) functionality for the player to find each clue in a room individually
     def search_current_room(self):
         """
-        Out puts Searches to the current room 
-        :return: none
+        Out puts Searches to the current room.
         """
-        lines = [f"You are searching {self.current_room}...\n"]
+        current_location = next(
+            location for location in self.locations
+            if location.get_name().strip().lower() == self.current_room.strip().lower()
+        )
+
+        lines = [
+            f"You are searching {self.current_room}...\n",
+            f"{current_location.get_description()}\n"
+        ]
         found_any = False
 
         for clue in self.clues:
-            if clue.get_location().strip().lower() == self.current_room.strip().lower():
+            if clue.get_item_location().strip().lower() == self.current_room.strip().lower():
                 found_any = True
                 if clue not in self.found_clues:
                     self.found_clues.append(clue)
                     lines.append(
-                        f"Found clue: {clue.get_name()}\n"
-                        f"Description: {clue.get_description()}\n"
+                        f"Found clue: {clue.get_item_name()}\n"
+                        f"Description: {clue.get_item_description()}\n"
                     )
                 else:
-                    lines.append(f"You already found: {clue.get_name()}\n")
+                    lines.append(f"You already found: {clue.get_item_name()}\n")
 
         if not found_any:
             lines.append("No clues found here.")
@@ -392,7 +441,7 @@ class MysteryGUI:
 
         lines = ["Found Clues:\n"]
         for i, clue in enumerate(self.found_clues, 1):
-            lines.append(f"{i}. {clue.get_name()} - {clue.get_description()}")
+            lines.append(f"{i}. {clue.get_item_name()} - {clue.get_item_description()}")
         self.update_output("\n".join(lines))
 
 # TODO: tracking for unique responses for asking suspect for an alibi again (this may just be put in when you accuse a suspect)
@@ -420,14 +469,30 @@ class MysteryGUI:
             :return: none
             """
             selection = suspect_listbox.curselection()
+
             if not selection:
                 messagebox.showwarning("No Selection", "Please choose a suspect.")
                 return
 
             suspect = self.suspects[selection[0]]
-            self.update_output(
-                f"{suspect.get_name()}'s alibi:\n\n{suspect.get_alibi()}"
+
+            matching_alibi = next(
+                (
+                    alibi for alibi in self.alibis
+                    if alibi.get_suspect_id() == suspect.get_suspect_id()
+                ),
+                None
             )
+
+            if matching_alibi:
+                alibi_text = matching_alibi.get_text()
+            else:
+                alibi_text = "This suspect does not have an alibi."
+
+            self.update_output(
+                f"{suspect.get_name()}'s alibi:\n\n{alibi_text}"
+            )
+
             window.destroy()
 
         tk.Button(window, text="Show Alibi", command=submit).pack(pady=10)
@@ -465,7 +530,7 @@ class MysteryGUI:
 
             accused_suspect = self.suspects[selection[0]]
 
-            if accused_suspect.get_name() == self.culprit_name:
+            if accused_suspect.get_suspect_id() == self.culprit_id:
                 messagebox.showinfo(
                     "Result",
                     f"You solved the mystery.\n{self.culprit_name} is the culprit."

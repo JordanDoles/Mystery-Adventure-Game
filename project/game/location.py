@@ -1,7 +1,8 @@
 class Location:
-    def __init__(self, location_id, name, case_id, variation_id):
+    def __init__(self, location_id, name, description, case_id, variation_id):
         self.__location_id = location_id
         self.__name = name
+        self.__description = description
         self.__case_id = case_id
         self.__variation_id = variation_id
 
@@ -11,6 +12,9 @@ class Location:
 
     def get_name(self):
         return self.__name
+
+    def get_description(self):
+        return self.__description
 
     def get_case_id(self):
         return self.__case_id

@@ -2,41 +2,41 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 import pandas as pd
-from suspect import Suspect
-from clue import Clue
-from location import Location
-from alibi import Alibi
-from case_variation import CaseVariation
-from case import Case
-from culprit import Culprit
+from .suspect import Suspect
+from .clue import Clue
+from .location import Location
+from .alibi import Alibi
+from .case_variation import CaseVariation
+from .case import Case
+from .culprit import Culprit
 
 #load all dataframes and strip spaces from column headers
 def load_cases_df():
-    df = pd.read_csv("cases.csv")
+    df = pd.read_csv(BASE_DIR/"data"/"cases.csv")
     df.columns = df.columns.str.strip()
     return df
 def load_variations_df():
-    df = pd.read_csv("case_variations.csv")
+    df = pd.read_csv(BASE_DIR/"data"/"case_variations.csv")
     df.columns = df.columns.str.strip()
     return df
 def load_suspects_df():
-    df = pd.read_csv("suspects.csv")
+    df = pd.read_csv(BASE_DIR/"data"/"suspects.csv")
     df.columns = df.columns.str.strip()
     return df
 def load_clues_df():
-    df = pd.read_csv("clues.csv")
+    df = pd.read_csv(BASE_DIR/"data"/"clues.csv")
     df.columns = df.columns.str.strip()
     return df
 def load_locations_df():
-    df = pd.read_csv("locations.csv")
+    df = pd.read_csv(BASE_DIR/"data"/"locations.csv")
     df.columns = df.columns.str.strip()
     return df
 def load_culprits_df():
-    df = pd.read_csv("culprits.csv")
+    df = pd.read_csv(BASE_DIR/"data"/"culprits.csv")
     df.columns = df.columns.str.strip()
     return df
 def load_alibis_df():
-    df = pd.read_csv("alibis.csv")
+    df = pd.read_csv(BASE_DIR/"data"/"alibis.csv")
     df.columns = df.columns.str.strip()
     return df
 
