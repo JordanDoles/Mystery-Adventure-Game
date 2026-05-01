@@ -1,0 +1,10 @@
+case_id,variation_id,correct_choice
+heirloom,stolen,The heirloom was deliberately taken.
+heirloom,broken,The heirloom was damaged... and someone tried to hide it.
+heirloom,misplaced,"The heirloom wasn’t stolen... it was lost, and someone lied to cover it up."
+dinner,poison_correct,This wasn’t random... the victim was poisoned.
+dinner,poison_wrong,This victim wasn’t the target... they were a mistake.
+dinner,accident,It was a mistake… but someone tried to cover it up.
+daughter,kidnapping,Finleigh didn’t leave on her own... she was taken.
+daughter,murder,Finleigh is dead... and someone here is hiding it.
+daughter,runaway,Finleigh chose to leave... but she didn’t do it alone.
