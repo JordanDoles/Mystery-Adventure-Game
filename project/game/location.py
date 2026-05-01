@@ -1,34 +1,19 @@
 class Location:
-    """
-    This class represents a location
-    """
-    def __init__(self, name, description):
-        """
-        constructor for Location class
-        :param name: name of the location
-        :param description: description of the location
-        :return: none
-        """
-        self.name = name
-        self.description = description
+    def __init__(self, location_id, name, case_id, variation_id):
+        self.__location_id = location_id
+        self.__name = name
+        self.__case_id = case_id
+        self.__variation_id = variation_id
+
+    # Getters
+    def get_location_id(self):
+        return self.__location_id
 
     def get_name(self):
-        """
-        gets the name of the location
-        :return: name of the location
-        """
-        return self.name
+        return self.__name
 
-    def get_description(self):
-        """
-        gets the description of the location
-        :return: description of the location
-        """
-        return self.description
+    def get_case_id(self):
+        return self.__case_id
 
-    def __str__(self):
-        """
-        string representation of the location
-        :return: string representation of the location
-        """
-        return f"{self.name} - {self.description}"
+    def get_variation_id(self):
+        return self.__variation_id
