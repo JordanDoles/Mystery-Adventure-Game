@@ -1,0 +1,109 @@
+case_id,variation_id,suspect_id,culprit_id,alibi_text
+heirloom,stolen,husband,gardener,"I was with the guests for most of the evening. I only returned to my study later, when I discovered the heirloom was gone."
+heirloom,stolen,wife,gardener,"I was entertaining guests alongside Victor. I don’t keep track of every movement through the house, especially during evenings like that. Although, I did hear there was some dirt tracked in earlier, though I imagine that came from someone not used to being particularly careful."
+heirloom,stolen,family_friend,gardener,"I remained inside with Claire and Victor for most of the evening. If anything happened, it would have required someone slipping away unnoticed. I certainly didn’t wander off tracking dirt through the house, if that is what’s being suggested."
+heirloom,stolen,maid,gardener,"I noticed some dirt tracked through the living room earlier, but with guests arriving and leaving, I assumed it was nothing out of the ordinary."
+heirloom,stolen,butler,gardener,The household followed its usual routine. I was occupied with service and could not account for every movement through the house at all times.
+heirloom,stolen,gardener,gardener,I finished my work outside before the evening and had no reason to go into the study. I keep to my duties.
+heirloom,stolen,husband,family_friend,"I spent the evening with the guests. Lillian did stop by my study earlier in the day while I was there, but it was only for a moment."
+heirloom,stolen,wife,family_friend,"I was with the guests throughout the evening. Some people, however, seem quite comfortable inserting themselves into places they have no reason to be."
+heirloom,stolen,family_friend,family_friend,"I did step into the study earlier to speak with Victor for a moment. It was nothing unusual, just a quick conversation before I returned to the others."
+heirloom,stolen,maid,family_friend,"I did see Miss Harrow near the study earlier, though I thought Mr. Auren was with her at the time."
+heirloom,stolen,butler,family_friend,The safe was not forced open. Whoever accessed it did so with knowledge of how it worked.
+heirloom,stolen,gardener,family_friend,"I stayed outside all day. After the rain, I wouldn’t have stepped inside without being noticed."
+heirloom,broken,husband,maid,"I was with the guests for most of the evening. The heirloom was on my desk earlier, but I hadn’t checked on it again until later."
+heirloom,broken,wife,maid,"I was with the guests throughout the evening. If something happened in the study, it must have been while the staff were handling their duties."
+heirloom,broken,family_friend,maid,"I remained with the others for most of the evening. If something was misplaced, it seems more like carelessness than intent."
+heirloom,broken,maid,maid,"I was cleaning as usual. I don’t recall anything out of the ordinary, just the usual work that needed to be done."
+heirloom,broken,butler,maid,"I did hear something from the study earlier, though I assumed it was nothing more than something being moved during cleaning."
+heirloom,broken,gardener,maid,I stayed outside for most of the day. I wouldn’t know anything about what was going on inside.
+heirloom,broken,husband,wife,"I was with the guests for most of the evening. The heirloom had been on my desk earlier, though I hadn’t checked on it again until later."
+heirloom,broken,wife,wife,"I was with the guests throughout the evening. If anything happened in the study, I certainly wasn’t there to see it."
+heirloom,broken,family_friend,wife,"I was with the others, as expected. Though I did notice Claire stepped away for a time. When she returned, she seemed… slightly less polished than usual."
+heirloom,broken,maid,wife,"I was cleaning the study earlier, but I remember Mrs. Delmare stopping in for a moment. I didn’t think anything of it at the time."
+heirloom,broken,butler,wife,"I did hear a noise from the study earlier, though I assumed something had simply been moved or knocked during cleaning."
+heirloom,broken,gardener,wife,I stayed outside most of the day. I wouldn’t know anything about what happened inside.
+heirloom,misplaced,husband,wife,"I was with the guests for most of the evening. The heirloom had been on my desk earlier, though I assumed it was still there."
+heirloom,misplaced,wife,wife,"I was with the guests throughout the evening. If the heirloom is missing, then someone must have taken it."
+heirloom,misplaced,family_friend,wife,"I was with the others, as expected. Though Claire does have a habit of rearranging things when they don’t suit her."
+heirloom,misplaced,maid,wife,"I remember Mrs. Delmare going into the study earlier, though I thought she was only tidying something. She didn’t stay long."
+heirloom,misplaced,butler,wife,"I did not hear anything unusual from the study. If something occurred, it was done without disturbance."
+heirloom,misplaced,gardener,wife,I stayed outside most of the day. I wouldn’t know anything about what happened inside.
+heirloom,misplaced,husband,butler,I asked Alfred to see to the heirloom earlier. I assumed it had been secured afterward.
+heirloom,misplaced,wife,butler,"I was with the guests throughout the evening. If something was mishandled, I would expect it to be addressed properly rather than… misplaced."
+heirloom,misplaced,family_friend,butler,"I was with the others, as expected. Though it’s always interesting how quickly something can go missing when it’s being handled by too many people."
+heirloom,misplaced,maid,butler,"I saw Alfred carrying something earlier, though I didn’t get a good look at what it was. He seemed in a bit of a hurry."
+heirloom,misplaced,butler,butler,"I followed Mr. Auren’s instructions as requested. I did step outside briefly to speak with Oliver, but I returned shortly after. When I went to retrieve the heirloom later, it was no longer where it should have been."
+heirloom,misplaced,gardener,butler,"I spoke with Alfred outside for a short time. He didn’t have anything with him, at least nothing I noticed."
+dinner,poison_correct,husband,husband,
+dinner,poison_correct,wife,husband,
+dinner,poison_correct,family_friend,husband,
+dinner,poison_correct,businessman,husband,
+dinner,poison_correct,chef,husband,
+dinner,poison_correct,butler,husband,
+dinner,poison_correct,husband,chef,
+dinner,poison_correct,wife,chef,
+dinner,poison_correct,family_friend,chef,
+dinner,poison_correct,businessman,chef,
+dinner,poison_correct,chef,chef,
+dinner,poison_correct,butler,chef,
+dinner,poison_wrong,husband,businessman,
+dinner,poison_wrong,wife,businessman,
+dinner,poison_wrong,family_friend,businessman,
+dinner,poison_wrong,businessman,businessman,
+dinner,poison_wrong,chef,businessman,
+dinner,poison_wrong,butler,businessman,
+dinner,poison_wrong,husband,family_friend,
+dinner,poison_wrong,wife,family_friend,
+dinner,poison_wrong,family_friend,family_friend,
+dinner,poison_wrong,businessman,family_friend,
+dinner,poison_wrong,chef,family_friend,
+dinner,poison_wrong,butler,family_friend,
+dinner,accident,husband,chef,
+dinner,accident,wife,chef,
+dinner,accident,family_friend,chef,
+dinner,accident,businessman,chef,
+dinner,accident,chef,chef,
+dinner,accident,butler,chef,
+dinner,accident,husband,butler,
+dinner,accident,wife,butler,
+dinner,accident,family_friend,butler,
+dinner,accident,businessman,butler,
+dinner,accident,chef,butler,
+dinner,accident,butler,butler,
+daughter,kidnapping,husband,driver,
+daughter,kidnapping,wife,driver,
+daughter,kidnapping,businessman,driver,
+daughter,kidnapping,driver,driver,
+daughter,kidnapping,maid,driver,
+daughter,kidnapping,gardener,driver,
+daughter,kidnapping,husband,businessman,
+daughter,kidnapping,wife,businessman,
+daughter,kidnapping,businessman,businessman,
+daughter,kidnapping,driver,businessman,
+daughter,kidnapping,maid,businessman,
+daughter,kidnapping,gardener,businessman,
+daughter,murder,husband,husband,
+daughter,murder,wife,husband,
+daughter,murder,businessman,husband,
+daughter,murder,driver,husband,
+daughter,murder,maid,husband,
+daughter,murder,gardener,husband,
+daughter,murder,husband,gardener,
+daughter,murder,wife,gardener,
+daughter,murder,businessman,gardener,
+daughter,murder,driver,gardener,
+daughter,murder,maid,gardener,
+daughter,murder,gardener,gardener,
+daughter,runaway,husband,maid,
+daughter,runaway,wife,maid,
+daughter,runaway,businessman,maid,
+daughter,runaway,driver,maid,
+daughter,runaway,maid,maid,
+daughter,runaway,gardener,maid,
+daughter,runaway,husband,driver,
+daughter,runaway,wife,driver,
+daughter,runaway,businessman,driver,
+daughter,runaway,driver,driver,
+daughter,runaway,maid,driver,
+daughter,runaway,gardener,driver,

@@ -1,0 +1,91 @@
+case_id,variation_id,culprit_id,clue_id,item_location,item_name,item_description
+heirloom,stolen,gardener,1,study,Footprints,"Faint dirt marks are visible across the study floor, leading toward the safe. They appear to have been partially cleaned, but not completely removed."
+heirloom,stolen,gardener,2,study,The Safe,"The safe shows no signs of forced entry. It appears to have been opened normally, suggesting the person responsible had access or knew how to operate it."
+heirloom,stolen,gardener,3,garden,Garden Shears,"A pair of garden shears has been set down just outside the side entrance, as if someone placed them aside before going inside."
+heirloom,stolen,gardener,4,kitchen,Side Entrance Door,The side entrance door was left slightly ajar. It is usually kept closed to prevent outside debris from being brought into the house.
+heirloom,stolen,gardener,5,living room ,Scattered Leaves,A few small leaves are caught near the edge of the rug just outside the door to the study. They do not match any of the plants kept inside the house.
+heirloom,stolen,family_friend,1,study,The Safe,"The safe shows no signs of forced entry. It appears to have been opened normally, suggesting the person responsible knew how to access it."
+heirloom,stolen,family_friend,2,study,Torn Paper,"A sheet of paper on Victor’s desk has been torn unevenly, as if a small section was removed. The remaining notes do not seem immediately important."
+heirloom,stolen,family_friend,3,dining room,Crumpled Paper Scrap,"A small, crumpled piece of paper is tucked partially under a table. It looks like it was stepped on or kicked aside. A short sequence of numbers is still visible."
+heirloom,stolen,family_friend,4,main hall,Coat Rack Disturbance,"One of the coats on the rack appears to have been handled recently, slightly out of place compared to the others. The surrounding area is otherwise neat."
+heirloom,stolen,family_friend,5,main hall,Study Door,The study door was left slightly ajar. It is typically kept closed when not in use.
+heirloom,broken,maid,1,study,Empty Space on Desk,"A cleared spot on Victor’s desk suggests something was recently kept there. The surface around it has been dusted, but the space itself shows a faint outline."
+heirloom,broken,maid,2,study,The Safe,The safe remains locked and undisturbed. There are no signs it has been opened recently.
+heirloom,broken,maid,3,study,Faint Impact Mark,"A small mark is visible along the edge of the desk and on the floor below, as if something struck it and fell."
+heirloom,broken,maid,4,,,
+heirloom,broken,maid,5,,,
+heirloom,broken,wife,1,study,Empty Space on Desk,"A cleared spot on Victor’s desk suggests something was recently kept there. The surrounding surface has been dusted, but the space itself shows a faint outline."
+heirloom,broken,wife,2,study,Faint Impact Mark,"A small mark is visible along the edge of the desk and on the floor below, as if something struck it and fell."
+heirloom,broken,wife,3,study,Nail Fragment,"A small, broken piece of a polished nail lies near the desk. It appears to have snapped off on impact."
+heirloom,broken,wife,4,bedroom,Opened Drawer,"One of Claire’s drawers has been left slightly open. Inside, something has been hastily tucked away beneath folded fabric."
+heirloom,broken,wife,5,,,
+heirloom,misplaced,wife,1,study,Empty Space on Desk,"A cleared space on Victor’s desk suggests something was recently kept there, though there are no signs it was damaged or removed in haste."
+heirloom,misplaced,wife,2,study,Slightly Shifted Objects,"Several items on the desk have been subtly rearranged, as if someone moved things briefly and did not return them to their exact original positions."
+heirloom,misplaced,wife,3,main hall,Out-of-Place Decoration,"A decorative item sits slightly out of place, as though it had been set down temporarily and forgotten."
+heirloom,misplaced,wife,4,bedroom,Misplaced Storage,A drawer or storage space contains items that appear to have been put away without much care. Something about the arrangement suggests it was done without much thought.
+heirloom,misplaced,wife,5,,,
+heirloom,misplaced,butler,1,study,The Safe,"The safe is open, but otherwise undisturbed. There are no signs of forced entry."
+heirloom,misplaced,butler,2,dining room,Serving Tray,"One of the serving trays has been set down unevenly, as if it was placed in a hurry before being abandoned."
+heirloom,misplaced,butler,3,kitchen,Plant Vase,"A decorative plant vase sits on the kitchen counter, out of place compared to the rest of the room. It looks like it was set down quickly rather than arranged with the other items."
+heirloom,misplaced,butler,4,,,
+heirloom,misplaced,butler,5,,,
+dinner,poison_correct,husband,1,,,
+dinner,poison_correct,husband,2,,,
+dinner,poison_correct,husband,3,,,
+dinner,poison_correct,husband,4,,,
+dinner,poison_correct,husband,5,,,
+dinner,poison_correct,chef,1,,,
+dinner,poison_correct,chef,2,,,
+dinner,poison_correct,chef,3,,,
+dinner,poison_correct,chef,4,,,
+dinner,poison_correct,chef,5,,,
+dinner,poison_wrong,businessman,1,,,
+dinner,poison_wrong,businessman,2,,,
+dinner,poison_wrong,businessman,3,,,
+dinner,poison_wrong,businessman,4,,,
+dinner,poison_wrong,businessman,5,,,
+dinner,poison_wrong,family_friend,1,,,
+dinner,poison_wrong,family_friend,2,,,
+dinner,poison_wrong,family_friend,3,,,
+dinner,poison_wrong,family_friend,4,,,
+dinner,poison_wrong,family_friend,5,,,
+dinner,accident,chef,1,,,
+dinner,accident,chef,2,,,
+dinner,accident,chef,3,,,
+dinner,accident,chef,4,,,
+dinner,accident,chef,5,,,
+dinner,accident,butler,1,,,
+dinner,accident,butler,2,,,
+dinner,accident,butler,3,,,
+dinner,accident,butler,4,,,
+dinner,accident,butler,5,,,
+daughter,kidnapping,driver,1,,,
+daughter,kidnapping,driver,2,,,
+daughter,kidnapping,driver,3,,,
+daughter,kidnapping,driver,4,,,
+daughter,kidnapping,driver,5,,,
+daughter,kidnapping,businessman,1,,,
+daughter,kidnapping,businessman,2,,,
+daughter,kidnapping,businessman,3,,,
+daughter,kidnapping,businessman,4,,,
+daughter,kidnapping,businessman,5,,,
+daughter,murder,husband,1,,,
+daughter,murder,husband,2,,,
+daughter,murder,husband,3,,,
+daughter,murder,husband,4,,,
+daughter,murder,husband,5,,,
+daughter,murder,gardener,1,,,
+daughter,murder,gardener,2,,,
+daughter,murder,gardener,3,,,
+daughter,murder,gardener,4,,,
+daughter,murder,gardener,5,,,
+daughter,runaway,maid,1,,,
+daughter,runaway,maid,2,,,
+daughter,runaway,maid,3,,,
+daughter,runaway,maid,4,,,
+daughter,runaway,maid,5,,,
+daughter,runaway,driver,1,,,
+daughter,runaway,driver,2,,,
+daughter,runaway,driver,3,,,
+daughter,runaway,driver,4,,,
+daughter,runaway,driver,5,,,

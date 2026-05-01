@@ -1,0 +1,20 @@
+case_id,location_id,location_name,location_description
+heirloom,1,kitchen,"A well-maintained space used primarily by the staff, the kitchen is kept orderly despite the demands of hosting guests. Items are usually returned to their proper places, making anything out of order stand out."
+heirloom,2,living room,"The living room serves as a comfortable gathering space for guests, with carefully arranged furniture and decor reflecting the Auren family’s taste. It has seen steady use throughout the evening."
+heirloom,3,bedroom,"A private and neatly kept bedroom, arranged with care and attention to detail. Personal belongings are stored out of sight, and anything left exposed tends to draw attention."
+heirloom,4,study,"Victor’s study, a controlled and orderly space where important items are kept and handled. It is not a room guests would typically enter without reason."
+heirloom,5,garden,The garden is well-kept but largely separate from the activity inside the house. It offers a quiet space away from the structure and routine of the evening’s gathering.
+heirloom,6,dining room,"The dining room has been set up to host guests, with everything arranged for presentation and service. Movement through this space has been frequent throughout the evening."
+heirloom,7,main entry,"The main entry connects the interior of the house to the outside, serving as the primary point of arrival and departure. It has seen consistent use as guests come and go."
+dinner,1,kitchen,
+dinner,2,living room,
+dinner,3,bedroom,
+dinner,4,study,
+dinner,5,garden,
+dinner,6,dining room,
+daughter,1,kitchen,
+daughter,2,living room,
+daughter,3,bedroom,
+daughter,4,study,
+daughter,5,garden,
+daughter,6,dining room,

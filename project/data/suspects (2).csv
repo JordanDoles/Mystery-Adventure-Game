@@ -1,0 +1,19 @@
+case_id,suspect_id,suspect_name,suspect_role,suspect_description
+heirloom,husband,Victor Auren,The Husband,"A wealthy collector obsessed with order, Victor treats his possessions as extensions of his control and does not take kindly to things going missing."
+heirloom,wife,Claire Delmare,The Wife,"A poised socialite who always seems to know what everyone else is up to, Claire maintains control in every situation, especially when something valuable is involved."
+heirloom,maid,Penny Duster,The Maid,"A meticulous housemaid who notices everything, Penny keeps track of the estate’s routines and who strays from them."
+heirloom,butler,Alfred Sterling,The Butler,A dignified butler whose calm professionalism hides a precise awareness of who goes where and when.
+heirloom,gardener,Oliver Green,The Gardener,A reserved groundskeeper who spends long hours outside and is often overlooked by those inside the house.
+heirloom,family_friend,Lillian Harrow,Family Friend,"A longtime family friend with expensive tastes and a sharp eye for detail, Lillian shares a complicated history with the Auren family that still lingers beneath the surface."
+dinner,husband,Victor Auren,The Husband,"A composed and calculating host, Victor treats the dinner as both a social event and a strategic opportunity, carefully managing conversations and outcomes throughout the evening."
+dinner,wife,Claire Delmare,The Wife,"A poised socialite who thrives in controlled settings, Claire ensures the evening runs smoothly, keeping a close eye on both the guests and the impression they leave."
+dinner,family_friend,Lillian Harrow,Family Friend,"A longtime family friend with a sharp tongue and sharper instincts, Lillian observes the evening with quiet interest, never missing an opportunity to comment on what others overlook."
+dinner,businessman,Marcus Pierce,Business Partner,"A wealthy and ambitious businessman, Marcus maintains a polished demeanor while navigating the evening’s conversations, always attentive to what might benefit him."
+dinner,chef,Gordon Cutler,The Head Chef,"The Auren estate’s head chef, Gordon takes pride in delivering a flawless dining experience, though the pressure of the evening leaves little room for mistakes."
+dinner,butler,Alfred Sterling,The Butler,"A dignified and attentive butler, Alfred oversees the flow of service with precision, ensuring each course and interaction proceeds without disruption."
+daughter,husband,Victor Auren,The Husband,A wealthy collector obsessed with order and protecting his family’s secrets.
+daughter,wife,Claire Delmare,The Wife,A poised socialite who always seems to know what everyone else is up to.
+daughter,businessman,Marcus Pierce,,
+daughter,driver,,,
+daughter,maid,Penny Duster,The Maid,A meticulous housemaid who notices everything happening around the estate.
+daughter,gardener,Oliver Green,,
