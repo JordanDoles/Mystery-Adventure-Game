@@ -20,10 +20,10 @@ class Case:
         return self.__opening
     
     def get_what_choice_1(self):
-        self.__what_choice_1 = what_choice_1
+        return self.__what_choice_1
         
     def get_what_choice_2(self):
-        self.__what_choice_1 = what_choice_2
+        return self.__what_choice_2
         
     def get_what_choice_3(self):
-        self.__what_choice_3= what_choice_3
+        return self.__what_choice_3
