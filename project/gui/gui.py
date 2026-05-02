@@ -172,7 +172,17 @@ class MysteryGUI:
             font=("Arial", 18, "bold"),
             bg="lightgrey"
         )
-        self.title_label.pack(pady=10)
+        self.title_label.pack(pady=5
+                              )
+
+        # Current case
+        self.current_case_label = tk.Label(
+            self.main_frame,
+            text=f"Current Case: {self.selected_case_name.get()}",
+            font=("Arial", 14, "bold"),
+            bg="lightgrey"
+        )
+        self.current_case_label.pack(pady=2)
 
         # Current room
         self.current_room_label = tk.Label(
@@ -198,9 +208,9 @@ class MysteryGUI:
         # Buttons
         self.view_suspects_button = tk.Button(
             self.left_panel,
-            text="View Suspects",
+            text="View Case File",
             width=20,
-            command=self.show_suspects
+            command=self.show_case_file
         )
         self.view_suspects_button.pack(pady=5)
 
@@ -260,13 +270,18 @@ class MysteryGUI:
         )
         self.instructions_label.pack(pady=20)
 
+        # Map container
+        self.map_container = tk.Frame(self.right_panel, bg="lightgrey")
+        self.map_container.pack(fill="x", pady=(0, 10))
+
         # Map canvas
         self.map_canvas = tk.Canvas(
-            self.right_panel,
-            bg="white",
+            self.map_container,
+            bg="lightgreen",
+            width=700,
             height=380
         )
-        self.map_canvas.pack(fill="x", pady=(0, 10), expand=True)
+        self.map_canvas.pack(anchor="center")
 
         # Output area
         self.output_text = tk.Text(
@@ -301,7 +316,7 @@ class MysteryGUI:
             "main entry": (260, 30, 440, 120),
             "study": (60, 30, 240, 120),
             "master bedroom": (460, 30, 640, 120),
-            "bedroom": (460, 30, 640, 120),
+            "bedroom": (60, 140, 240, 230),
             "living room": (260, 140, 440, 230),
             "dining room": (260, 250, 440, 340),
             "kitchen": (460, 140, 640, 230),
@@ -399,15 +414,22 @@ class MysteryGUI:
                 f"{current_location.get_description()}\n"
             )
 
-# TODO: suspects can only be interacted with in certain rooms
-    def show_suspects(self):
+    def show_case_file(self):
         """
-        Displays the suspects on the screen
+        Displays the suspect list and case description.
         :return: none
         """
-        lines = ["Suspects:\n"]
-        for i, suspect in enumerate(self.suspects, 1):
-            lines.append(f"{suspect.get_role()}\n   {suspect.get_name()}: {suspect.get_description()}\n\n")
+        lines = [
+            "Case Description:\n",
+            f"{self.current_case.get_opening()}\n\n",
+            "Suspects:\n"
+        ]
+
+        for suspect in self.suspects:
+            lines.append(
+                f"{suspect.get_role()}\n"
+                f"{suspect.get_name()}: {suspect.get_description()}\n"
+            )
         self.update_output("\n".join(lines))
 
     def show_locations(self):
@@ -419,6 +441,7 @@ class MysteryGUI:
         for i, location in enumerate(self.locations, 1):
             lines.append(f"{i}. {location.get_name()}")
         self.update_output("\n".join(lines))
+
     # SECTION: GAME FUNCTIONS
     def search_current_room(self):
         """
@@ -572,7 +595,7 @@ class MysteryGUI:
             selected_happening,
             *what_choices
         )
-        happening_dropdown.config(width=30)
+        happening_dropdown.config(width=50)
         happening_dropdown.grid(row=0, column=1, padx=5, pady=10)
 
         tk.Label(
@@ -585,13 +608,13 @@ class MysteryGUI:
             selected_suspect,
             *suspect_names
         )
-        suspect_dropdown.config(width=30)
+        suspect_dropdown.config(width=20)
         suspect_dropdown.grid(row=1, column=1, padx=5, pady=5)
 
         tk.Label(
             accusation_frame,
             text="who did it!"
-        )
+        ).grid(row=1, column=2, padx=5, pady=5)
 
         def submit():
             """
