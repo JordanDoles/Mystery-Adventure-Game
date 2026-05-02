@@ -1,7 +1,11 @@
-import pytest
-from load_data import load_variations_df, oad_specific_case_id,load_random_variation,load_random_culprit,load_culprits_df,load_suspects_df,load_clues_df, load_locations_df, load_alibis_df
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-#checking if variation ids for heirloom are actually broken, stolen and misplaced and not any more 
+import pytest
+import pandas as pd
+from project.game.load_data import load_variations_df, load_specific_case_id, load_random_variation, load_random_culprit, load_culprits_df
+
+#checking if variation ids for heirloom are actually broken, stolen and misplaced and not anything else
 def test_variations_for_heirloom():
     variations_df = load_variations_df()
     heirloom_variations = []
@@ -14,7 +18,7 @@ def test_variations_for_heirloom():
     assert "misplaced" in heirloom_variations
     assert len(heirloom_variations) == 3
 
-#trying to check that case id, variation and culprit that used in load_data matches the values in df 
+#trying to check that case id, variation and culprit that used in load_data matches the values in df - giving me error atm about postional arguments 
 def test_culprit_matches_case_and_variation_in_df():
     caseid = load_specific_case_id("heirloom")
     variation = load_random_variation(caseid.get_case_id())
