@@ -288,7 +288,6 @@ class MysteryGUI:
         self.output_text.insert(tk.END, text)
         self.output_text.config(state="disabled")
 
-# TODO: draw the rest of the rooms on the map
     def draw_map(self):
         """
         Creates the map
@@ -420,7 +419,7 @@ class MysteryGUI:
         for i, location in enumerate(self.locations, 1):
             lines.append(f"{i}. {location.get_name()}")
         self.update_output("\n".join(lines))
-
+    # SECTION: GAME FUNCTIONS
     def search_current_room(self):
         """
         Out puts Searches to the current room.
@@ -530,6 +529,7 @@ class MysteryGUI:
 
         self.update_output("\n".join(lines))
 
+    # SECTION: GAME END
     def make_accusation(self):
         """
         Creates window that displays the option for user to make an accusation about both:
@@ -601,7 +601,7 @@ class MysteryGUI:
             guessed_suspect = selected_suspect.get().strip()
 
             correct_happening = self.current_variation.get_correct_choice().strip()
-            correct_suspect = self.culprit_name().strip()
+            correct_suspect = self.culprit_name.strip()
 
             happening_correct = guessed_happening == correct_happening
             culprit_correct = guessed_suspect == correct_suspect
