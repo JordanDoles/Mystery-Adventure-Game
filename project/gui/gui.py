@@ -601,7 +601,7 @@ class MysteryGUI:
             guessed_suspect = selected_suspect.get().strip()
 
             correct_happening = self.current_variation.get_correct_choice().strip()
-            correct_suspect = self.culprit_name().strip()
+            correct_suspect = self.culprit_name.strip()
 
             happening_correct = guessed_happening == correct_happening
             culprit_correct = guessed_suspect == correct_suspect
