@@ -52,7 +52,10 @@ def load_specific_case_id(case_id):
     return Case(
         row["case_id"],
         row["case_name"],
-        row["case_opening"]
+        row["case_opening"],
+        row["what_choice_1"],
+        row["what_choice_2"],
+        row["what_choice_3"]
     )
 # load variation of the case
 def load_random_variation(case_id):
