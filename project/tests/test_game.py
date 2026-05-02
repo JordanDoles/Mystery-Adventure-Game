@@ -3,7 +3,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 import pytest
 import pandas as pd
-from project.game.load_data import load_variations_df, load_specific_case_id, load_random_variation, load_random_culprit, load_culprits_df
+from project.game.load_data import load_variations_df, load_specific_case_id, load_random_variation, load_random_culprit, load_culprits_df,load_suspects_df,load_clues_df, load_locations_df, load_alibis_df
 
 #checking if variation ids for heirloom are actually broken, stolen and misplaced and not anything else
 def test_variations_for_heirloom():
