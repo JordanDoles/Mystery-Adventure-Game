@@ -1,5 +1,5 @@
 import pytest
-from load_data import load_variations_df, load_specific_case_id, load_random_variation, load_random_culprit, load_culprits_df
+from load_data import load_variations_df, oad_specific_case_id,load_random_variation,load_random_culprit,load_culprits_df,load_suspects_df,load_clues_df, load_locations_df, load_alibis_df
 
 #checking if variation ids for heirloom are actually broken, stolen and misplaced and not any more 
 def test_variations_for_heirloom():
@@ -14,7 +14,7 @@ def test_variations_for_heirloom():
     assert "misplaced" in heirloom_variations
     assert len(heirloom_variations) == 3
 
-#trying to check that case id, variation and culprit that used in load_data matches the values in df - giving me error atm about postional arguments 
+#trying to check that case id, variation and culprit that used in load_data matches the values in df 
 def test_culprit_matches_case_and_variation_in_df():
     caseid = load_specific_case_id("heirloom")
     variation = load_random_variation(caseid.get_case_id())
@@ -28,3 +28,14 @@ def test_culprit_matches_case_and_variation_in_df():
             row["culprit_id"] == culprit.get_culprit_id()):
             match = True
     assert match
+
+def test_dataframes_are_not_empty():
+    dataframes = [load_variations_df(),
+           load_culprits_df(),
+           load_suspects_df(),
+           load_clues_df(),
+           load_locations_df(),
+           load_alibis_df()]
+
+    for df in dataframes:
+        assert not df.empty
