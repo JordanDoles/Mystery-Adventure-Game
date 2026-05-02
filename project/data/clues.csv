@@ -29,13 +29,13 @@ heirloom,misplaced,butler,2,dining room,Serving Tray,"One of the serving trays h
 heirloom,misplaced,butler,3,kitchen,Plant Vase,"A decorative plant vase sits on the kitchen counter, out of place compared to the rest of the room. It looks like it was set down quickly rather than arranged with the other items."
 heirloom,misplaced,butler,4,,,
 heirloom,misplaced,butler,5,,,
-dinner,poison_correct,husband,1,,,
-dinner,poison_correct,husband,2,,,
-dinner,poison_correct,husband,3,,,
-dinner,poison_correct,husband,4,,,
-dinner,poison_correct,husband,5,,,
-dinner,poison_correct,chef,1,,,
-dinner,poison_correct,chef,2,,,
+dinner,poison_correct,husband,1,living room,Victim’s Wine Glass,"The glass left near where Kessler collapsed still contains a small amount of liquid. There is a faint, unusual bitterness beneath the expected scent of the drink."
+dinner,poison_correct,husband,2,main entry,Folded Note,"Kessler’s jacket has been left in the main hall. In one of the pockets is a folded note referencing a private financial matter involving Victor, written in a tone that suggests leverage rather than cooperation."
+dinner,poison_correct,husband,3,kitchen,Unwashed Plate,"One of the dinner plates has been set aside and not yet cleaned. It appears normal, with no unusual residue or smell."
+dinner,poison_correct,husband,4,living room,Wine Charm,The wine glass is marked with a decorative wine charm. None of the other glasses from the evening appear to have one attached.
+dinner,poison_correct,husband,5,dining room,Small Glass Vial,"A small, nearly empty vial has been left near the drink setup, partially hidden behind other items. It has a faint, bitter scent."
+dinner,poison_correct,chef,1,dining room,Kessler’s Plate,"Kessler’s plate has been set aside and not yet cleaned. The dish appears similar to the others, though something about the unfinished slice of garlic bread seems slightly off upon closer inspection."
+dinner,poison_correct,chef,2,living room,Menu Card,"The evening’s menu features a rich Italian-style meal, with several garlic-heavy dishes served throughout the courses."
 dinner,poison_correct,chef,3,,,
 dinner,poison_correct,chef,4,,,
 dinner,poison_correct,chef,5,,,
