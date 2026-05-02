@@ -18,6 +18,30 @@ def test_variations_for_heirloom():
     assert "misplaced" in heirloom_variations
     assert len(heirloom_variations) == 3
 
+def test_variations_for_dinner():
+    variations_df = load_variations_df()
+    dinner_variations = []
+    for i, row in variations_df.iterrows():
+        if row["case_id"] == "dinner":
+            dinner_variations.append(row["variation_id"])
+
+    assert "poison_wrong" in dinner_variations
+    assert "poison_correct" in dinner_variations
+    assert "accident" in dinner_variations
+    assert len(dinner_variations) == 3
+
+def test_variations_for_daughter():
+    variations_df = load_variations_df()
+    daughter_variations = []
+    for i, row in variations_df.iterrows():
+        if row["case_id"] == "daughter":
+            daughter_variations.append(row["variation_id"])
+
+    assert "kidnapping" in daughter_variations
+    assert "murder" in daughter_variations
+    assert "runaway" in daughter_variations
+    assert len(daughter_variations) == 3
+
 #trying to check that case id, variation and culprit that used in load_data matches the values in df - giving me error atm about postional arguments 
 def test_culprit_matches_case_and_variation_in_df():
     caseid = load_specific_case_id("heirloom")
