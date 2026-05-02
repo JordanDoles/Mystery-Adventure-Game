@@ -12,7 +12,6 @@ from project.game.load_data import (
     load_alibis)
 
 # TODO: find out how to make it so that you can't type in the output box
-# TODO: "start" screen with basic game goal description & player ability to choose case
 class MysteryGUI:
     """
     Class for Mystery Investigation Game GUI
@@ -30,7 +29,6 @@ class MysteryGUI:
 
         self.show_start_screen()
 
-# TODO: "start" screen with basic game goal description
     # SECTION: START SCREEN
     def show_start_screen(self):
         """
@@ -134,6 +132,7 @@ class MysteryGUI:
         self.alibis = load_alibis(self.case_id, self.variation_id, self.culprit_id)
 
         self.found_clues = []
+        self.found_alibis = {}
         self.room_shapes = {}
 
         self.culprit_name = next(
@@ -142,7 +141,11 @@ class MysteryGUI:
             if suspect.get_suspect_id() == self.culprit_id
         )
 
-        self.current_room = self.locations[0].get_name() if self.locations else "No Room"
+        self.current_room = next(
+            (location.get_name() for location in self.locations
+             if location.get_name().strip().lower() == "main entry"),
+            self.locations[0].get_name() if self.locations[0] else "No Room"
+        )
 
         self.start_frame.destroy()
         self.build_gui()
@@ -174,7 +177,7 @@ class MysteryGUI:
         # Current room
         self.current_room_label = tk.Label(
             self.main_frame,
-            text=f"Current Room: {self.current_room}",
+            text=f"Current Room: {self.current_room.title()}",
             font=("Arial", 12, "bold"),
             bg="lightgrey"
         )
@@ -203,23 +206,23 @@ class MysteryGUI:
 
         self.ask_alibi_button = tk.Button(
             self.left_panel,
-            text="Ask for Alibi",
+            text="Talk To Suspects",
             width=20,
             command=self.ask_suspect_alibi
         )
         self.ask_alibi_button.pack(pady=5)
 
-        self.view_locations_button = tk.Button(
+        self.view_alibis_button = tk.Button(
             self.left_panel,
-            text="View Locations",
+            text="View Collected Alibis",
             width=20,
-            command=self.show_locations
+            command=self.show_found_alibi
         )
-        self.view_locations_button.pack(pady=5)
+        self.view_alibis_button.pack(pady=5)
 
         self.search_room_button = tk.Button(
             self.left_panel,
-            text="Search Current Room",
+            text="Search Room",
             width=20,
             command=self.search_current_room
         )
@@ -247,7 +250,7 @@ class MysteryGUI:
             width=20,
             command=self.root.quit
         )
-        self.quit_button.pack(pady=5)
+        self.quit_button.pack(side="bottom", anchor="sw", padx=10, pady=10)
 
         self.instructions_label = tk.Label(
             self.left_panel,
@@ -261,9 +264,9 @@ class MysteryGUI:
         self.map_canvas = tk.Canvas(
             self.right_panel,
             bg="white",
-            height=300
+            height=380
         )
-        self.map_canvas.pack(fill="x", pady=(0, 10))
+        self.map_canvas.pack(fill="x", pady=(0, 10), expand=True)
 
         # Output area
         self.output_text = tk.Text(
@@ -273,15 +276,17 @@ class MysteryGUI:
             font=("Arial", 11)
         )
         self.output_text.pack(fill="both", expand=True)
+        self.output_text.config(state="disabled")
 
     def update_output(self, text):
         """
         updates the output on the screen
         :param text: text to display
-        :return: None
         """
+        self.output_text.config(state="normal")
         self.output_text.delete("1.0", tk.END)
         self.output_text.insert(tk.END, text)
+        self.output_text.config(state="disabled")
 
 # TODO: draw the rest of the rooms on the map
     def draw_map(self):
@@ -293,27 +298,32 @@ class MysteryGUI:
         self.room_shapes.clear()
 
         # Basic layout for the first few rooms
-        room_positions = [
-            ("Kitchen", 30, 30, 180, 120),
-            ("Living Room", 220, 30, 370, 120),
-            ("Bedroom", 410, 30, 560, 120),
-            ("Study", 125, 150, 275, 240),
-            ("Garden", 315, 150, 465, 240),
-        ]
+        room_positions = {
+            "main entry": (260, 30, 440, 120),
+            "study": (60, 30, 240, 120),
+            "master bedroom": (460, 30, 640, 120),
+            "bedroom": (460, 30, 640, 120),
+            "living room": (260, 140, 440, 230),
+            "dining room": (260, 250, 440, 340),
+            "kitchen": (460, 140, 640, 230),
+            "garden": (460, 250, 640, 340),
+        }
 
         # Fall back if CSV names differ from these
         location_names = [loc.get_name().strip() for loc in self.locations]
 
         for i, location_name in enumerate(location_names):
-            if i < len(room_positions):
-                _, x1, y1, x2, y2 = room_positions[i]
+            key = location_name.strip().lower()
+
+            if key in room_positions:
+                x1, y1, x2, y2 = room_positions[key]
             else:
                 # Simple overflow layout
                 row = i // 3
                 col = i % 3
                 x1 = 30 + col * 190
                 y1 = 30 + row * 120
-                x2 = x1 + 150
+                x2 = x1 + 180
                 y2 = y1 + 90
 
             fill_color = "lightblue" if location_name == self.current_room else "lightgray"
@@ -328,7 +338,7 @@ class MysteryGUI:
             text_id = self.map_canvas.create_text(
                 (x1 + x2) / 2,
                 (y1 + y2) / 2,
-                text=location_name,
+                text=location_name.title(),
                 font=("Arial", 12, "bold")
             )
 
@@ -354,7 +364,15 @@ class MysteryGUI:
         :return: True or False
         """
         for clue in self.clues:
-            if clue.get_item_location().strip().lower() == room_name.strip().lower() and clue not in self.found_clues:
+            clue_location = clue.get_item_location()
+
+            if not isinstance(clue_location, str):
+                continue
+
+            if (
+                clue_location.strip().lower() == room_name.strip().lower()
+                and clue not in self.found_clues
+            ):
                 return True
         return False
 
@@ -373,7 +391,14 @@ class MysteryGUI:
             self.current_room = self.room_shapes[item_id]
             self.current_room_label.config(text=f"Current Room: {self.current_room}")
             self.draw_map()
-            self.update_output(f"You travel to the {self.current_room}, select 'Search Current Room' to look for clues.")
+            current_location = next(
+                location for location in self.locations
+                if location.get_name().strip().lower() == self.current_room.strip().lower()
+            )
+            self.update_output(
+                f"You travel to the {self.current_room.title()}.\n\n"
+                f"{current_location.get_description()}\n"
+            )
 
 # TODO: suspects can only be interacted with in certain rooms
     def show_suspects(self):
@@ -383,7 +408,7 @@ class MysteryGUI:
         """
         lines = ["Suspects:\n"]
         for i, suspect in enumerate(self.suspects, 1):
-            lines.append(f"{i}. {suspect.get_name()} - {suspect.get_role()}")
+            lines.append(f"{suspect.get_role()}\n   {suspect.get_name()}: {suspect.get_description()}\n\n")
         self.update_output("\n".join(lines))
 
     def show_locations(self):
@@ -396,36 +421,34 @@ class MysteryGUI:
             lines.append(f"{i}. {location.get_name()}")
         self.update_output("\n".join(lines))
 
-# TODO: (maybe) functionality for the player to find each clue in a room individually
     def search_current_room(self):
         """
         Out puts Searches to the current room.
         """
-        current_location = next(
-            location for location in self.locations
-            if location.get_name().strip().lower() == self.current_room.strip().lower()
-        )
 
         lines = [
-            f"You are searching {self.current_room}...\n",
-            f"{current_location.get_description()}\n"
+            f"You enter the {self.current_room} and search for clues...\n"
         ]
         found_any = False
 
         for clue in self.clues:
-            if clue.get_item_location().strip().lower() == self.current_room.strip().lower():
+            clue_location = clue.get_item_location()
+
+            if (isinstance(clue_location, str)
+                and clue_location.strip().lower() == self.current_room.strip().lower()
+            ):
                 found_any = True
                 if clue not in self.found_clues:
                     self.found_clues.append(clue)
                     lines.append(
-                        f"Found clue: {clue.get_item_name()}\n"
-                        f"Description: {clue.get_item_description()}\n"
+                        f"Found clue: \n{clue.get_item_name()}\n"
+                        f"{clue.get_item_description()}\n"
                     )
                 else:
                     lines.append(f"You already found: {clue.get_item_name()}\n")
 
         if not found_any:
-            lines.append("No clues found here.")
+            lines.append("There are no clues to be found here.")
 
         self.update_output("\n".join(lines))
         self.draw_map()
@@ -444,8 +467,7 @@ class MysteryGUI:
             lines.append(f"{i}. {clue.get_item_name()} - {clue.get_item_description()}")
         self.update_output("\n".join(lines))
 
-# TODO: tracking for unique responses for asking suspect for an alibi again (this may just be put in when you accuse a suspect)
-# TODO: unique responses if certain pieces of evidence are found before talking to suspect
+# TODO: tracking for unique responses for asking suspect for an alibi again or if certain pieces of evidence are found prior
     def ask_suspect_alibi(self):
         """
         Prompts user to ask suspect for their alibi
@@ -489,66 +511,126 @@ class MysteryGUI:
             else:
                 alibi_text = "This suspect does not have an alibi."
 
-            self.update_output(
-                f"{suspect.get_name()}'s alibi:\n\n{alibi_text}"
-            )
+            self.found_alibis[suspect.get_name()] = alibi_text
+            self.update_output(f"{suspect.get_name()}'s alibi:\n\n{alibi_text}")
 
             window.destroy()
 
         tk.Button(window, text="Show Alibi", command=submit).pack(pady=10)
 
+    def show_found_alibi(self):
+        if not self.found_alibis:
+            self.update_output("Collected Alibis:\n\nYou have not collected any alibis yet. Go talk to suspects to find out more about this case.")
+            return
+
+        lines = ["Collected Alibis:\n"]
+
+        for suspect_name, alibi_text in self.found_alibis.items():
+            lines.append(f"{suspect_name}:\n{alibi_text}\n")
+
+        self.update_output("\n".join(lines))
+
     def make_accusation(self):
         """
-        Creates window that displays the option for user to make an accusation
-        :return: none
+        Creates window that displays the option for user to make an accusation about both:
+        1. what happened
+        2. who did it
         """
         window = tk.Toplevel(self.root)
         window.title("Make an Accusation")
-        window.geometry("300x350")
+        window.geometry("575x250")
 
         tk.Label(
             window,
-            text="Choose a suspect to accuse:",
+            text="Make your accusation:",
             font=("Arial", 12, "bold")
         ).pack(pady=10)
 
-        suspect_listbox = tk.Listbox(window, height=10)
-        suspect_listbox.pack(fill="both", expand=True, padx=10, pady=10)
+        accusation_frame = tk.Frame(window)
+        accusation_frame.pack(pady=10)
 
-        for suspect in self.suspects:
-            suspect_listbox.insert(tk.END, suspect.get_name())
+        what_choices = [
+            self.current_case.get_what_choice_1(),
+            self.current_case.get_what_choice_2(),
+            self.current_case.get_what_choice_3()
+        ]
+
+        selected_happening = tk.StringVar()
+        selected_happening.set(what_choices[0])
+
+        selected_suspect = tk.StringVar()
+        suspect_names = [suspect.get_name() for suspect in self.suspects]
+        selected_suspect.set(suspect_names[0])
+
+        tk.Label(
+            accusation_frame,
+            text="I've figured it out!"
+        ).grid(row=0, column=0, padx=5, pady=10)
+
+        happening_dropdown = tk.OptionMenu(
+            accusation_frame,
+            selected_happening,
+            *what_choices
+        )
+        happening_dropdown.config(width=30)
+        happening_dropdown.grid(row=0, column=1, padx=5, pady=10)
+
+        tk.Label(
+            accusation_frame,
+            text="And it was"
+        ).grid(row=1, column=0, padx=5, pady=5)
+
+        suspect_dropdown = tk.OptionMenu(
+            accusation_frame,
+            selected_suspect,
+            *suspect_names
+        )
+        suspect_dropdown.config(width=30)
+        suspect_dropdown.grid(row=1, column=1, padx=5, pady=5)
+
+        tk.Label(
+            accusation_frame,
+            text="who did it!"
+        )
 
         def submit():
             """
-            Displays suspects accuse to the screen if it is selected
-            :return: none
+            Displays player's accusation results.
             """
-            selection = suspect_listbox.curselection()
-            if not selection:
-                messagebox.showwarning("No Selection", "Please choose a suspect.")
-                return
+            guessed_happening = selected_happening.get().strip()
+            guessed_suspect = selected_suspect.get().strip()
 
-            accused_suspect = self.suspects[selection[0]]
+            correct_happening = self.current_variation.get_correct_choice().strip()
+            correct_suspect = self.culprit_name().strip()
 
-            if accused_suspect.get_suspect_id() == self.culprit_id:
-                messagebox.showinfo(
-                    "Result",
-                    f"You solved the mystery.\n{self.culprit_name} is the culprit."
+            happening_correct = guessed_happening == correct_happening
+            culprit_correct = guessed_suspect == correct_suspect
+
+            if happening_correct and culprit_correct:
+                result = (
+                    "You solved the mystery!\n\nEverything about your accusation checks out, nice job!"
+                )
+            elif happening_correct and not culprit_correct:
+                result = (
+                    f"You're partially right, but {guessed_suspect} doesn't seem to be the culprit.\n\n"
+                    "Maybe take another look around for more information?"
+                )
+            elif culprit_correct and not happening_correct:
+                result = (
+                    f"{guessed_suspect} definitely didn't pass the vibe check, and you're right about that.\n\n"
+                    "But something about what happened doesn't quite add up.\n\n"
+                    "Maybe take another look around for more clues?"
                 )
             else:
-                messagebox.showinfo(
-                    "Result",
-                    f"That accusation is incorrect.\n"
-                    f"{accused_suspect.get_name()} is not the culprit.\n"
+                result = (
+                    "That accusation is incorrect.\n\n"
+                    "Neither part of your accusation matches the evidence."
                 )
-
+            messagebox.showinfo("Result", result)
             window.destroy()
 
         tk.Button(
             window,
             text="Submit Accusation",
             command=submit
-        ).pack(pady=10)
-
-        # Optional: allow double-click on a suspect to accuse immediately
-        suspect_listbox.bind("<Double-Button-1>", lambda event: submit())
+        ).pack(pady=15)
