@@ -1,0 +1,91 @@
+case_id,variation_id,culprit_id,clue_id,item_location,item_name,item_description
+heirloom,stolen,gardener,1,study,Footprints,"Faint dirt marks are visible across the study floor, leading toward the safe. They appear to have been partially cleaned, but not completely removed."
+heirloom,stolen,gardener,2,study,The Safe,"The safe shows no signs of forced entry. It appears to have been opened normally, suggesting the person responsible had access or knew how to operate it."
+heirloom,stolen,gardener,3,garden,Garden Shears,"A pair of garden shears has been set down just outside the side entrance, as if someone placed them aside before going inside."
+heirloom,stolen,gardener,4,kitchen,Side Entrance Door,The side entrance door was left slightly ajar. It is usually kept closed to prevent outside debris from being brought into the house.
+heirloom,stolen,gardener,5,living room ,Scattered Leaves,A few small leaves are caught near the edge of the rug just outside the door to the study. They do not match any of the plants kept inside the house.
+heirloom,stolen,family_friend,1,study,The Safe,"The safe shows no signs of forced entry. It appears to have been opened normally, suggesting the person responsible knew how to access it."
+heirloom,stolen,family_friend,2,study,Torn Paper,"A sheet of paper on Victor’s desk has been torn unevenly, as if a small section was removed. The remaining notes do not seem immediately important."
+heirloom,stolen,family_friend,3,dining room,Crumpled Paper Scrap,"A small, crumpled piece of paper is tucked partially under a table. It looks like it was stepped on or kicked aside. A short sequence of numbers is still visible."
+heirloom,stolen,family_friend,4,main entry,Coat Rack Disturbance,"One of the coats on the rack appears to have been handled recently, slightly out of place compared to the others. The surrounding area is otherwise neat."
+heirloom,stolen,family_friend,5,main entry,Study Door,The study door was left slightly ajar. It is typically kept closed when not in use.
+heirloom,broken,maid,1,study,Empty Space on Desk,"A cleared spot on Victor’s desk suggests something was recently kept there. The surface around it has been dusted, but the space itself shows a faint outline."
+heirloom,broken,maid,2,study,The Safe,The safe remains locked and undisturbed. There are no signs it has been opened recently.
+heirloom,broken,maid,3,study,Faint Impact Mark,"A small mark is visible along the edge of the desk and on the floor below, as if something struck it and fell."
+heirloom,broken,maid,4,kitchen,Fragments in Trash,"In the kitchen trash there are a few small, irregular fragments that appear to be part of something finely crafted. The material looks too valuable to have been thrown away carelessly."
+heirloom,broken,maid,5,main entry,Feather Duster,"A feather duster has been left in the hallway outside the study, rather than returned to its usual storage. It appears to have been set down in a hurry."
+heirloom,broken,wife,1,study,Empty Space on Desk,"A cleared spot on Victor’s desk suggests something was recently kept there. The surrounding surface has been dusted, but the space itself shows a faint outline."
+heirloom,broken,wife,2,study,Faint Impact Mark,"A small mark is visible along the edge of the desk and on the floor below, as if something struck it and fell."
+heirloom,broken,wife,3,study,Nail Fragment,"A small, broken piece of a polished nail lies near the desk. It appears to have snapped off on impact."
+heirloom,broken,wife,4,master bedroom,Opened Drawer,"One of Claire’s drawers has been left slightly open. Inside, something has been hastily tucked away beneath folded fabric."
+heirloom,broken,wife,5,living room ,Laptop Charging ,A laptop is plugged into the wall charging. Some one must be home from work today 
+heirloom,misplaced,wife,1,study,Empty Space on Desk,"A cleared space on Victor’s desk suggests something was recently kept there, though there are no signs it was damaged or removed in haste."
+heirloom,misplaced,wife,2,study,Slightly Shifted Objects,"Several items on the desk have been subtly rearranged, as if someone moved things briefly and did not return them to their exact original positions."
+heirloom,misplaced,wife,3,main entry,Out-of-Place Decoration,"A decorative item sits slightly out of place, as though it had been set down temporarily and forgotten."
+heirloom,misplaced,wife,4,master bedroom,Misplaced Storage,A drawer or storage space contains items that appear to have been put away without much care. Something about the arrangement suggests it was done without much thought.
+heirloom,misplaced,wife,5,living room ,A Vase ,A large vase in the living somehow rolled onto its side without breaking. It sits on the large wooden coffee table.
+heirloom,misplaced,butler,1,study,The Safe,"The safe is open, but otherwise undisturbed. There are no signs of forced entry."
+heirloom,misplaced,butler,2,dining room,Serving Tray,"One of the serving trays has been set down unevenly, as if it was placed in a hurry before being abandoned."
+heirloom,misplaced,butler,3,kitchen,Plant Vase,"A decorative plant vase sits on the kitchen counter, out of place compared to the rest of the room. It looks like it was set down quickly rather than arranged with the other items."
+heirloom,misplaced,butler,4,main entry,Door Unlocked ,The front door remains unlocked which is highly unusual for this household. Rarely anyone of the family or staff enter this way. 
+heirloom,misplaced,butler,5,kitchen ,Note ,On the kitchen counter sits a note from the maid that reads 'I had a family emergency and had to leave for the day'
+dinner,poison_correct,husband,1,living room,Victim’s Wine Glass,"The glass left near where Kessler collapsed still contains a small amount of liquid. There is a faint, unusual bitterness beneath the expected scent of the drink."
+dinner,poison_correct,husband,2,main entry,Folded Note,"Kessler’s jacket has been left in the main hall. In one of the pockets is a folded note referencing a private financial matter involving Victor, written in a tone that suggests leverage rather than cooperation."
+dinner,poison_correct,husband,3,kitchen,Unwashed Plate,"One of the dinner plates has been set aside and not yet cleaned. It appears normal, with no unusual residue or smell."
+dinner,poison_correct,husband,4,living room,Wine Charm,The wine glass is marked with a decorative wine charm. None of the other glasses from the evening appear to have one attached.
+dinner,poison_correct,husband,5,dining room,Small Glass Vial,"A small, nearly empty vial has been left near the drink setup, partially hidden behind other items. It has a faint, bitter scent."
+dinner,poison_correct,chef,1,dining room,Kessler’s Plate,"Kessler’s plate has been set aside and not yet cleaned. The dish appears similar to the others, though something about it seems slightly off upon closer inspection."
+dinner,poison_correct,chef,2,living room,Menu Card,"The evening’s menu features a rich Italian-style meal, with several garlic-heavy dishes served throughout the courses."
+dinner,poison_correct,chef,3,kitchen ,Tomato Sauce Disaster ,The tomato sauce that was made for the pasta dish exploded and has left splatters all over the entire kitchen and on the walls. Alfred is aggressively cleaning it all up at the end of the evening.
+dinner,poison_correct,chef,4,main entry,Jacket ,Gordon Cutler's jacket was left in the foyer. It is usually put away in the closet.
+dinner,poison_correct,chef,5,dining room,Cuff Link ,A cufflink belonging to Alfred Sterling sits on the the table after dinner. He is always moving in and out the dining room unnoticed. 
+dinner,poison_wrong,businessman,1,dining room,Note ,Claire had written a note to her husband and it lay under the table. It read 'I thought you had everything handled. How upset is he that you lost the money?'
+dinner,poison_wrong,businessman,2,kitchen ,Unusual substance,A weird gray liquid was splattered near the large blender. The family had eaten steak that night so it was unusual.
+dinner,poison_wrong,businessman,3,kitchen ,Suit Jacket ,An embellished expense jacket laid on a stool in the kitchen. There seems to be something tucked into the pocket.
+dinner,poison_wrong,businessman,4,study,Papers,Financial documents about a transaction between Victor and Marcus were ripped up and littered all over the floor. 
+dinner,poison_wrong,businessman,5,living room,Jewelry ,Claire's engagement sits on the side table near the window. It was highly unusual for her to leave her ring anywhere but on her hand or in her bedroom. 
+dinner,poison_wrong,family_friend,1,dining room,Blue vial ,A small skinny vial lays under the dining room table empty
+dinner,poison_wrong,family_friend,2,kitchen ,Purse with planner ,A purse with a large blue planner in it sits on a stool in the kitchen and describes in detail how horrible a person Claire is.
+dinner,poison_wrong,family_friend,3,living room,Victim's Glass ,Kessler's wine glass lays shattered on the floor near the couch where he was sitting.
+dinner,poison_wrong,family_friend,4,main entry ,Missing Shoes and Jacket ,Lillian Harrow's shoes and jacket appear to be missing from the entryway when the evening ends. Maybe she came through a different entrance? 
+dinner,poison_wrong,family_friend,5,master bedroom,Printed Picture ,An old picture of Victor and Lillian hugging at a college party lay on desk.
+dinner,accident,chef,1,dining room,Broken glass ,"In the chaos of Kessler's collapse at the dinner table, he threw his water glass across the table."
+dinner,accident,chef,2,study ,Papers ,Lots of papers sat on the printer of different recipes for that evening's dinner.
+dinner,accident,chef,3,kitchen ,Herbs ,Lots of different spices and herbs are thrown across the counter.
+dinner,accident,chef,4,kitchen ,Calculator ,A calculator was left on the kitchen counter turned on.
+dinner,accident,chef,5,main entry ,Shoes ,A pair of large brown boots sat near the entryway. It is unusual for shoes to be left out even when guests attend for dinner.
+dinner,accident,butler,1,study ,Broken lamp ,A large green lamp had been knocked over and shattered all over floor. 
+dinner,accident,butler,2,dining room,Stained tablecloth ,The dining room table cloth has been stained entirely in red wine that had been spilled sometime during dinner. 
+dinner,accident,butler,3,kitchen ,Leaking Refrigerator ,The refrigerator started making noises yesterday and the freezer started to leak fluid and it oozed across the kitchen floor.
+dinner,accident,butler,4,living room,Plant Pot Broken ,The living room was mostly tidy besides the fact that the large plant was spilling onto the floor and all dirt on the pot was seeping onto the carpet.
+dinner,accident,butler,5,garden ,Hole in the fence ,A large hole in the fence of the gard appeared to have been created by the neighbors dog. Flowers were dug up.
+daughter,kidnapping,driver,1,bedroom,Altered Schedule,"Finleigh’s schedule for the day has been edited in her usual neat handwriting. The changes are precise but unfamiliar, and do not match any adjustments Victor or Claire recall making. In a household where her schedule is strictly controlled, changes without their knowledge are highly unusual."
+daughter,kidnapping,driver,2,main entry,Missing Outerwear,"The coat and shoes Finleigh was wearing earlier are missing from the entry, though the rest of the closet remains undisturbed. Nothing appears to have been taken in a hurry."
+daughter,kidnapping,driver,3,kitchen,Car Keys,"The keys to the family car have been left in the kitchen, partially hidden behind a knife block rather than returned to their usual place."
+daughter,kidnapping,driver,4,kitchen,Note ,A note lay on the kitchen counter that was signed by Finleigh. It read 'I am leaving. FOREVER. - Miss Finleigh'.
+daughter,kidnapping,driver,5,dining room,Schedule ,"Victor’s copy of Finleigh’s schedule sits on his desk. It shows no changes or additions, and does not match the version found in her room. As the schedule is typically managed through him and Claire, this version appears to be the official one."
+daughter,kidnapping,businessman,1,bedroom,Suitcase ,"traditional kidnapping, Finn did not trust him like she trusted her driver so there probably was struggling/commotion. he did this for business leverage/ransom"
+daughter,kidnapping,businessman,2,living room,Glasses ,Two glasses filled with water sit in the living room. One appears to be drank the other does not.
+daughter,kidnapping,businessman,3,study,Shredded Financial Documents ,Financial documents in the study had been recently shredded and discarded in the waste bin. They had been triple shredded. The police said it will take weeks if anything to figure out what they say.
+daughter,kidnapping,businessman,4,main entry ,Ransom Note,"There is a ransom note in the main entry hall that reads 'If I don't get the money you owe, you'll never see her again.'"
+daughter,kidnapping,businessman,5,garden ,Back Gate Broken ,The back gate of the garden is bent and twisted out of shape. It looks like someone would need a lot of strength to be able to do this.
+daughter,murder,husband,1,bedroom ,bloody footprints ,bloody footprints lead out of Finleigh's room and then disappear in the hallway. The footprints are decently large and appear to be loafers or boots. 
+daughter,murder,husband,2,kitchen ,Dirty cloth,A dirty cloth lay on the kitchen counter that appeared to have a little bit of blood on it.
+daughter,murder,husband,3,study,Broken lamp,A lamp lay shattered on the floor in the study. The top of the lamp was missing and was not found in the house. 
+daughter,murder,husband,4,main entry ,Door left open ,The main door to the house was left open and the door lock was broken as if someone had broke in.
+daughter,murder,husband,5,study ,Papers,Papers in the study were scattered everywhere. Most of them belonged to Victor's financial firm. 
+daughter,murder,driver,1,bedroom ,Chair overturned ,A large chair is overturned in the bedroom. The chair is very light. There is a droplet of blood on the carpet but otherwise the room is tidy and neat.
+daughter,murder,driver,2,dining room,Jacket ,A suiting jacket that does not belong to any member of the family sits at the bottom of the stairs. It appears to also have specks of blood on it.
+daughter,murder,driver,3,main entry ,House keys ,The house keys Finleigh uses where left in the tin in the main entryway. She brings them everywhere with her.
+daughter,murder,driver,4,kitchen ,Bloody glove ,A white bloody glove in found in the trash can. The other glove is not found. 
+daughter,murder,driver,5,main entry,Drops of blood ,Specks of blood are splatters across the main entryway. They lead to the stairs toward the bedroom.
+daughter,runaway,maid,1,kitchen ,To-Do list ,Cleaning To-List remains in the kitchen. Everything is checked off as completed for the day. 
+daughter,runaway,maid,2,living room,Dirty Carpet ,The living room carpet has dirt tracked all over it from outside from the gardener earlier in the morning when he waters the flowers. 
+daughter,runaway,maid,3,bedroom,Bag handle ,Bag handle that appear to be ripped off of a duffle bag is stuck to the corner of the dresser near the door. The space seems tidy and clean otherwise. 
+daughter,runaway,maid,4,main entry ,Swiffer ,A large swiffer and swiffer pads lay in the main hall. They are usually stored in the closet after they have been used to clean the main hall. 
+daughter,runaway,maid,5,study ,Dirty windows ,The windows are covered in dust and dirt that has been accumulating for some time. 
+daughter,runaway,gardener,1,bedroom,Packed Essentials,"A few personal items appear to be missing from Finleigh's room, though nothing obvious at first glance. The space remains tidy, but not everything has been left behind."
+daughter,runaway,gardener,2,garden,Disturbed Path,"A section of the garden path shows light signs of recent use, as though passed through a few times. Two sets of footprints can be made out. One set of large boot prints is a common sight throughout the garden, but the other set of footprints alongside them are much smaller and lighter and not commonly seen out here."
+daughter,runaway,gardener,3,garden,Unlatched Gate,The side gate behind the tool shed is not fully secured. It appears to have been opened recently and closed again without being properly latched.
+daughter,runaway,gardener,4,main entry,Missing Outerwear,"The coat and shoes Finleigh was wearing earlier, as well as a few of her others, are gone, though the rest of the closet remains undisturbed. Nothing appears to have been taken in a hurry."
+daughter,runaway,gardener,5,bedroom,Handwritten Note,"A neatly written note has been left behind in Finleigh’s room. It's written in her neat looping handwriting and in it, she states that she is leaving of her own accord and that no effort should be made to find her. The tone is composed, though the wording is more direct than expected."
