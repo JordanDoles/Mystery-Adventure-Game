@@ -1,0 +1,25 @@
+case_id,location_id,location_name,location_description
+heirloom,1,kitchen,"A well-maintained space used primarily by the staff, the kitchen is kept orderly despite the demands of hosting guests. Items are usually returned to their proper places, making anything out of order stand out."
+heirloom,2,living room,"The living room serves as a comfortable gathering space for guests, with carefully arranged furniture and decor reflecting the Auren family’s taste. It has seen steady use throughout the evening."
+heirloom,3,master bedroom,"The master bedroom is immaculate, with personal items arranged with deliberate care. Nothing appears out of place, though the room gives the impression that little is left unattended."
+heirloom,4,study,"Victor’s study, a controlled and orderly space where important items are kept and handled. It is not a room guests would typically enter without reason."
+heirloom,5,garden,The garden is well-kept but largely separate from the activity inside the house. It offers a quiet space away from the structure and routine of the main household.
+heirloom,6,dining room,"The dining room has been set up to host guests, with everything arranged for presentation and service. Movement through this space has been frequent throughout the evening."
+heirloom,7,bedroom,"The bedroom that belongs to Victor and Claire's daughter is tidy and structured, with her belongings organized with precision. Nothing stands out as unusual, and the room appears untouched."
+heirloom,8,main entry,"The main entry connects the interior of the house to the outside, serving as the primary point of arrival and departure. It has seen consistent use as guests come and go."
+dinner,1,kitchen,"A well-maintained space used primarily by the staff, the kitchen is filled to the brim with lots pots and pans for cooking. Food, plates and utensils cover the counter. There is a large meal being prepared. "
+dinner,2,living room,"The living room serves as a comfortable gathering space for guests, with carefully arranged furniture and decor reflecting the Auren family’s taste. Lots of people have been in and out of this room this evening."
+dinner,3,master bedroom,"A large, well-kept bedroom belonging to Victor and Claire. Everything is arranged with care, and nothing appears out of place."
+dinner,4,study,"Victor’s study, a controlled and orderly space where important items are kept and handled. It is not a room guests would typically enter without reason."
+dinner,5,main entry,The garden is well-kept but largely separate from the activity inside the house. It offers a quiet space away from the structure and routine of the evening’s gathering.
+dinner,6,dining room,The dining room is ornately decorated with candles and a beautiful table cloth draped on the table. This room is the center of attention this evening as a dinner party is being hosted.
+dinner,7,bedroom,"The bedroom that belongs to Victor and Claire's daughter is neat and carefully arranged, with everything in its place. It feels more functional than personal, as though it is maintained to meet expectations rather than comfort."
+dinner,8,main entry,"The main entry connects the interior of the house to the outside, serving as the primary point of arrival and departure. It has seen consistent use as guests come and go."
+daughter,1,kitchen,"The kitchen is an incredibly tidy , well maintained space by the the staff. All the food is stocked and typically everything is the correct position. "
+daughter,2,living room,The living is the main space the family spends time in. It is a large space with incredible decorations picked out family. The couches wrap the room and face the fireplace. 
+daughter,3,master bedroom,"The master bedroom is orderly and quiet, its space reflecting the structure of the household. There is little here that suggests anything out of the ordinary."
+daughter,4,study,"The study is used by many members of the family, but mainly Victor. There are many important items and documents held in this room and the door usually remains shut so others do not wander in. "
+daughter,5,garden,The garden is overflowing with tomatoes and cucumbers this year. It is very well kept and also has lots of the family's favorite flowers in the springtime. It is a quiet getaway for guests and family members away from the house. 
+daughter,6,dining room,The dining room contains an overly large wooden table with a beautiful chandelier. It is often decorated differently for different hosting occasions. Everything in this room arranged in preparation for the next meal. 
+daughter,7,bedroom,"Finleigh’s bedroom is orderly, with her belongings arranged exactly as expected. At a glance, nothing appears out of place, though the space feels recently used, as if she had intended to return."
+daughter ,8,main entry,"The main entry connects the interior of the house to the outside, serving as the primary point of arrival and departure. It has seen consistent use as guests come and go."
