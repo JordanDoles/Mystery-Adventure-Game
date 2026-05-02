@@ -43,3 +43,14 @@ def test_dataframes_are_not_empty():
 
     for df in dataframes:
         assert not df.empty
+
+def test_no_cells_in_dataframe_are_empty():
+    dataframes = [load_variations_df(),
+           load_culprits_df(),
+           load_suspects_df(),
+           load_clues_df(),
+           load_locations_df(),
+           load_alibis_df()]
+
+    for df in dataframes:
+        assert not df.isnull().sum().sum() == 0
