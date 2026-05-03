@@ -39,7 +39,7 @@ class MysteryGUI:
 
         tk.Label(
             self.start_frame,
-            text="Welcome to the Mystery Investigation Game.",
+            text="Welcome to Accusations & Alibis.",
             font=("Arial", 18, "bold"),
             bg="lightgrey"
         ).pack(pady=20)
@@ -168,7 +168,7 @@ class MysteryGUI:
         # Title
         self.title_label = tk.Label(
             self.main_frame,
-            text="Mystery Investigation Game",
+            text="Accusations & Alibis",
             font=("Arial", 18, "bold"),
             bg="lightgrey"
         )
