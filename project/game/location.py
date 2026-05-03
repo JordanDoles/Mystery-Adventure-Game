@@ -29,7 +29,7 @@ class Location:
     def get_name(self):
         """
         Return the Location Name
-        :return: locaiton name
+        :return: location name
         """
         return self.__location_name
 
