@@ -27,7 +27,7 @@ class Alibi:
         """
         return self.__suspect_id
 
-    def get_alibi_text(self):
+    def get_text(self):
         """
         Returns alibi text
         :return: alibi text
